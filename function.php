@@ -46,8 +46,6 @@ $koneksi = mysqli_connect("localhost","root","","dbuntals");
 
 			}
 
-
-			function booking()
 			
 ?>
  
