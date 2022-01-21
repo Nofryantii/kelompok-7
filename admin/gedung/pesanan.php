@@ -1,6 +1,13 @@
 <?php
   include('../../koneksi.php'); 
   include 'navbar.php';
+
+  session_start();
+  if(!isset($_SESSION["admin"])){
+    header ("location:../../login.php");
+    exit;
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -55,17 +62,12 @@
                       if(!$result){
                         die ("Query Error: ".mysqli_errno($koneksi).
                         " - ".mysqli_error($koneksi));
-                      }
-                    
-                      //buat perulangan untuk element tabel dari data mahasiswa
-                      $no = 1; //variabel untuk membuat nomor urut
-                      // hasil query akan disimpan dalam variabel $data dalam bentuk array
-                      // kemudian dicetak dengan perulangan while
+                      }                                 
+                      $no = 1; 
                       while($row = mysqli_fetch_assoc($result))
                       {
                       ?>
-                            <tr>
-                              
+                            <tr>                             
                               <td><?php echo $no; ?></td>
                               <td><?php echo $row['name']; ?></td>
                               <td><?php echo $row['nama_gedung']; ?></td>

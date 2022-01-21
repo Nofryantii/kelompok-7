@@ -1,4 +1,9 @@
 <?php
+  session_start();
+  if(!isset($_SESSION["admin"])){
+    header ("location:../../login.php");
+    exit;
+  }
   include('../../koneksi.php'); 
   include 'navbar.php';
 ?>
@@ -46,23 +51,19 @@
                             </tr>
                           </thead>
                           <tbody>
-                      <?php
-                      // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
-                      $query = "SELECT * FROM tbl_gedung ORDER BY id_gedung ASC";
-                      $result = mysqli_query($koneksi, $query);
-                      //mengecek apakah ada error ketika menjalankan query
-                      if(!$result){
-                        die ("Query Error: ".mysqli_errno($koneksi).
-                        " - ".mysqli_error($koneksi));
-                      }
-                    
-                      //buat perulangan untuk element tabel dari data mahasiswa
-                      $no = 1; //variabel untuk membuat nomor urut
-                      // hasil query akan disimpan dalam variabel $data dalam bentuk array
-                      // kemudian dicetak dengan perulangan while
-                      while($row = mysqli_fetch_assoc($result))
-                      {
-                      ?>
+
+                                  <?php
+                                  $query = "SELECT * FROM tbl_gedung ORDER BY id_gedung ASC";
+                                  $result = mysqli_query($koneksi, $query);
+                              
+                                  if(!$result){
+                                    die ("Query Error: ".mysqli_errno($koneksi).
+                                    " - ".mysqli_error($koneksi));
+                                  }                  
+                                  $no = 1;
+                                  while($row = mysqli_fetch_assoc($result))
+                                  {
+                                  ?>
                             <tr>
                               
                               <td><?php echo $no; ?></td>

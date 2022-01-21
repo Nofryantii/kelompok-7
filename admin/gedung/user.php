@@ -1,4 +1,10 @@
 <?php
+
+  session_start();
+  if(!isset($_SESSION["admin"])){
+    header ("location:../../login.php");
+    exit;
+  }
   include('../../koneksi.php'); 
   include 'navbar.php';
 ?>
@@ -32,12 +38,11 @@
                               <th>Username</th>
                               <th>Email</th>
                               <th>Hapus</th>
-                            
                             </tr>
                           </thead>
                           <tbody>
                       <?php
-                      // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
+                      // jalankan query untuk menampilkan semua data diurutkan
                       $query = "SELECT * FROM users ORDER BY id ASC";
                       $result = mysqli_query($koneksi, $query);
                       //mengecek apakah ada error ketika menjalankan query
@@ -46,9 +51,9 @@
                         " - ".mysqli_error($koneksi));
                       }
                     
-                      //buat perulangan untuk element tabel dari data mahasiswa
+                      //buat perulangan untuk element tabel
                       $no = 1; //variabel untuk membuat nomor urut
-                      // hasil query akan disimpan dalam variabel $data dalam bentuk array
+                      // hasil query akan disimpan dalam variabel dalam bentuk array
                       // kemudian dicetak dengan perulangan while
                       while($row = mysqli_fetch_assoc($result))
                       {

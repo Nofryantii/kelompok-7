@@ -29,10 +29,7 @@ if(!isset($_SESSION["login"])){
    
  
 ?>
-
-
-<html lang="en">
-    
+ 
     <head>
         <title>booking</title>
         <meta charset="UTF-8">
@@ -105,16 +102,13 @@ if(!isset($_SESSION["login"])){
                     initialView: 'dayGridMonth',
                     events: [     
                         <?php 
-
-                        //melakukan koneksi ke database
-                        $koneksi    = mysqli_connect('localhost', 'root', '', 'dbuntals');
-                        //mengambil data dari tabel jadwal
+                         //mengambil data dari tabel jadwal
                         $data       = mysqli_query($koneksi,'SELECT * FROM booking');
                         //melakukan looping
                         while($d = mysqli_fetch_array($data)){     
                         ?>
                         {
-                        title: '<?php echo $d['kegiatan']; ?>', //menampilkan title dari tabel
+                        title: 'SOLD', //menampilkan title dari tabel
                         start: '<?php echo $d['start']; ?>', //menampilkan tgl mulai dari tabel
                         end: '<?php echo $d['end']; ?>' //menampilkan tgl selesai dari tabel
                         },

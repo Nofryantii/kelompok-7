@@ -50,20 +50,9 @@ if($foto != "") {
                            " - ".mysqli_error($koneksi));
                   } else {
 
-                    //jalankan sesi
-                    // if( mysqli_num_rows($result) === 1){
-                    //   $row = mysqli_fetch_assoc($result);
-                    //   $_SESSION["id_gedung"] = $row["id_gedung"];
-                    //   $_SESSION["nama_gedung"] = $row["nama_gedung"];
-                    //   $_SESSION["harga"] = $row["harga"];
-                    //   }  
-
-                                                        
-                              
-                      
                     //tampil alert dan akan redirect ke halaman index.php
                     //silahkan ganti index.php sesuai halaman yang akan dituju
-                    echo "<script>alert('Data berhasil ditambah.');window.location='index.php';</script>";
+                    echo "<script>alert('Data berhasil ditambah.');window.location='gedung.php';</script>";
                   }
 }
 

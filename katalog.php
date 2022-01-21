@@ -12,9 +12,7 @@ if(!isset($_SESSION["login"])){
 }
 
 if(isset($_GET["id_gedung"])){
-    $nama_gedung = $_POST["hidden_name"];
-    $harga_gedung = $_POST["hidden_harga"];
-    
+  
     $result = mysqli_query($koneksi, "SELECT * FROM tbl_gedung WHERE  nama_gedung = '$nama_gedung'");
     if( mysqli_num_rows($result) === 1){
     $row = mysqli_fetch_assoc($result)  ;
@@ -26,6 +24,7 @@ if(isset($_GET["id_gedung"])){
 }
 ?>
 
+<title>catalog-buntals</title>
 <body>
          <header class="catalog pt-5">
             <div class="container">
@@ -74,7 +73,7 @@ if(isset($_GET["id_gedung"])){
                                             <input type="hidden" name="hidden_name" value="<?php echo $row['nama_gedung']; ?>"/>
                                             <input type="hidden" name="hidden_harga" value="<?php echo $row['harga']; ?>"/>
                                             <input name="id_gedung" value="<?php echo $data['id_gedung']; ?>"  hidden />
-                                        <!-- <a href="#" class="btn btn-danger btn-sm">Booking</a> -->
+                            
                                         <a href="pemesanan.php?id_gedung=<?php echo $row['id_gedung']; ?>" class="btn btn-info btn-sm btn-danger">Booking</a>
                                         <a href="detail.php?id_gedung=<?php echo $row['id_gedung']; ?>" class="btn btn-info btn-sm">Details</a>
                                         <a href="<?php echo $row['chat'];?>" class="btn btn-teal btn-sm">Chat</a>

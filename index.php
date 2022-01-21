@@ -9,6 +9,9 @@ if(!isset($_SESSION["login"])){
 }
   
 ?>
+
+<title>buntals</title>
+
     <body id="page-top">
        
         <!-- Masthead-->

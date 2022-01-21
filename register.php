@@ -28,17 +28,9 @@ if (isset ($_POST["register"])){
           <form  action="" method="POST">
                       
                         <input type="text" id="nama" name="nama" placeholder="Masukkan Nama">
-           
-            
                         <input type="text" id="username" name="username" placeholder="Masukkan username">
-          
-               
                         <input type="email" id="email" name="email" aria-describeby="emailHelp" placeholder="Masukkan email">
-          
-               
                         <input type="password"  id="password" name="password" placeholder="Password">
-          
-             
                         <input type="password" id="password2" name="password2" placeholder="Re-Password">
             
                 <button type="submit" name="register">Register</button>
